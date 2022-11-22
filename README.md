@@ -1,5 +1,6 @@
 # Welcome.
-        Hi. Here you will find an Advanced Web Technology class project in the works. It is a full-stack web application that I am working on with three others. 
+        Hi. Here you will find an Advanced Web Technology class project in the works. It is a full-stack web 
+        application that I am working on with three others. 
 
 
 # How to start the Angular app
