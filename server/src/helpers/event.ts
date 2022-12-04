@@ -155,7 +155,9 @@ export class Event {
 
         let filter = { "_id": { "$oid": req.body.id } }; // query data based on object ID
 
-        let update = { "$addToSet": { "attendess": { $each: JSON.parse(req.body.attendees) } } }; // update fields that are sent in the put request
+        let update = { "$push": { "attendess":  req.body.attendees  }}; // update fields that are sent in the put request
+
+        console.log(filter,update)
 
         Event.config.data = { ...Event.data, filter, update };
 

@@ -1,6 +1,7 @@
 const { response } = require("express");
 const { waitForDebugger } = require("inspector");
 
+
 // These functions can be used as templates to send and receive data on the front end. 
 
 
@@ -143,10 +144,10 @@ async function user_test() {
   // runs a seies of tests on the api / database for operations on user profiles
 
   let testID = new Date().getTime().toString(); // NOTE THIS WILL BE THE GOOGLE USER ID
-  await test_create_single_user(testID)
-  await test_update_single_user(testID)
-  await test_find_single_user(testID)
-  await delete_test_user(testID)
+  //await test_create_single_user(testID)
+  //await test_update_single_user(testID)
+  //await test_find_single_user(testID)
+  //await delete_test_user(testID)
 
 }
 
@@ -177,11 +178,11 @@ async function test_create_one_event(event_doc_id) {
     'id': 'test',
     'dateTimeStart':new Date().getTime()+100000, // THIS IS A TEST VALUE!!!!!!!!!,
     'dateTimeEnd':new Date().getTime()+200000, // THIS IS A TEST VALUE!!!!!!!!!
-    'title':'portalz',
-    'creator':'rick sanchez',
-    'descritption':'funfunfuninthesun',
+    'title':'Study Group for Automata Theory',
+    'creator':'A very sad person',
+    'descritption':'Banding together to defeat CISC303',
     'attendees': '["test"]',
-    'coordinates': '["test"]',
+    'coordinates': '[39.68243,-75.75402]',
     'tags': '["test"]',
     'groups': '["test"]',
   };
@@ -378,7 +379,7 @@ async function event_test(){
   await test_get_fileterd_events(), // query event based on group -- after edit,
   await test_add_user_to_event(event_doc_id), // add user to event
   await test_remove_user_from_event(event_doc_id), // remove user from event
-  await delete_test_event(event_doc_id)
+  //await delete_test_event(event_doc_id)
   console.log("\nNote the change in description and title")
 }
 
@@ -529,5 +530,5 @@ async function group_test(){
 
 
 event_test();
-user_test();
-group_test();
+//user_test();
+//group_test();

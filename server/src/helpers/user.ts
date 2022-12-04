@@ -71,6 +71,8 @@ export class User {
 
         const new_user_post = user.build_edit_object(user); // build an object to send to db
 
+        console.log(new_user_post)
+
         User.config.data = { ...User.data, document: new_user_post }; // adds POST info to prep send package
 
         axios(User.config).then(result => res.send(result)) // return response to client
@@ -110,7 +112,7 @@ export class User {
 
         User.config.url = User.baseURL + '/action/deleteOne';
 
-        let filter = { "_id": { "$oid": req.body.id } };
+        let filter = { "_id": { "$oid": req.body.id } }
 
         User.config.data = { ...User.data, filter };
 
@@ -122,12 +124,43 @@ export class User {
 
         User.config.url = User.baseURL + '/action/findOne';
 
-        let filter = { "_id": { "$oid": req.body.id } } // query data based on object ID
+         // query data based on object ID
+        let filter = { 'id': req.body.id };
+
+        
 
         User.config.data = { ...User.data, filter }; // adds POST info to prep send package
-
+        
+        console.log(User.config.data)
+        
         axios(User.config).then(response => res.send(JSON.stringify(response.data))) // return response to client
             .catch(error => res.send(error));
 
+    }
+
+    public verifyUser(req: express.Request, res: express.Response): void { // creates a user and returns the object id to client
+/*
+        User.config.url = User.baseURL + '/action/insertOne'; // insert one doc to db
+
+        if (req.body.interests) { req.body.interests = JSON.parse(req.body.interests) };
+        if (req.body.groups) { req.body.groups = JSON.parse(req.body.groups) };
+
+        let user = new User_Obj(
+            req.body.username,
+            req.body.id,
+            req.body.interests,
+            req.body.groups,
+        );
+
+        const new_user_post = user.build_edit_object(user); // build an object to send to db
+
+        console.log(new_user_post)
+
+        User.config.data = { ...User.data, document: new_user_post }; // adds POST info to prep send package
+
+        axios(User.config).then(result => res.send(result)) // return response to client
+            .catch(err => res.send(err));
+*/
+            console.log(req.body)
     }
 }

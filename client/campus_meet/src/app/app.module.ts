@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {GoogleMapsModule} from '@angular/google-maps';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { AuthComponent } from './auth/auth.component';
+import { MapComponent } from './map/map.component';
+import { CardsComponent } from './cards/cards.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    MapComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    GoogleMapsModule
   ],
   providers: [
     {
@@ -31,7 +36,7 @@ import { AuthComponent } from './auth/auth.component';
             )
           }
         ],
-        onError: (err) => {
+        onError: (err: any) => {
           console.error(err);
         }
       } as SocialAuthServiceConfig,

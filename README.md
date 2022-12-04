@@ -1,14 +1,3 @@
-# Welcome.
-        Hi. Here you will find an Advanced Web Technology class project in the works. 
-        It is a full-stack web application that I am working on with three others. 
-        
-        My contribution thus far lies in the backend api and authentication component 
-        of the Angular app. 
-        
-        Thank you for being here and checking it out!
-        
-
-
 # How to start the Angular app
 * IF RUNNING ANGULAR AND THE API, START THE SERVICES IN TWO SEPERATE TERMINALS
 * navigate to /client/ directory and run the command: ng serve

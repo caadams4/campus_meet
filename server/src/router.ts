@@ -19,6 +19,7 @@ export class ApiRouter {
         this.router.post("/user", this.user.postUser);
         this.router.put("/user", this.user.updateUser);
         this.router.post("/user/remove", this.user.deleteUser);
+        this.router.post("/user/verify", this.user.verifyUser);
 
         this.router.get("/event", this.event.getEvent);
         this.router.post("/event", this.event.postEvent);
