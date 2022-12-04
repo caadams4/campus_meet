@@ -1,0 +1,12 @@
+.card_list {
+    max-height: 90vh;
+    width: 95%;
+    margin-left: 1;
+    margin-right: auto;
+    margin-top: 1;
+    background-color: 80c1ff;
+}
+
+.card {
+    background-color: #ffe880;
+}

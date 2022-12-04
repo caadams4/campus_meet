@@ -1,0 +1,15 @@
+<div class="card_list"*ngFor="let event of event_list" >
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><u>{{event.title}}</u></h4>
+        <p class="card-text">{{event.descritption}}</p>
+        <p class="card-text">{{event.dateTimeStart}}-{{event.dateTimeEnd}}</p>
+        
+        <div>
+            <button class="btn btn-dark" (click)="selectEvent(event)">Join</button>
+
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
