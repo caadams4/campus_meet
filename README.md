@@ -1,18 +1,18 @@
 ---
 # How to start the Angular app
 * IF RUNNING ANGULAR AND THE API, START THE SERVICES IN TWO SEPERATE TERMINALS
-* navigate to /client/ directory and run the command: ng serve
+* navigate to /client/campus/ directory and run the command: ng serve
 * http://127.0.0.1:4200
 
 # How to start the API
 * IF RUNNING ANGULAR AND THE API, START THE SERVICES IN TWO SEPERATE TERMINALS
-* navigate to client/campus_meet/
+* navigate to /client/campus_meet/
 * in a terminal, run the command: ng serve
 * http://127.0.0.1:4200
 
 # How to use the API
 * IF RUNNING ANGULAR AND THE API, START THE SERVICES IN TWO SEPERATE TERMINALS
-* from project2-group2/server/ directory, run the command: npm start 
+* from /server/ directory, run the command: npm start 
 * http://127.0.0.1/api/ + one of the following paths...
 
 
