@@ -8,20 +8,33 @@ import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { AuthComponent } from './auth/auth.component';
 import { MapComponent } from './map/map.component';
 import { CardsComponent } from './cards/cards.component';
-
+import { MaterialModule } from './material/material.module';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {MatNativeDateModule} from '@angular/material/core';
+import { ViewEventComponent } from './view-event/view-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     MapComponent,
-    CardsComponent
+    CardsComponent,
+    CreateEventComponent,
+    ViewEventComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    MaterialModule,
+    FormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule
   ],
   providers: [
     {

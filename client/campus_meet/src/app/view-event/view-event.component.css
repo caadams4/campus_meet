@@ -1,5 +1,4 @@
 .card_list {
-    max-height: 90vh;
     padding-top: 1;
     padding-right: 1;
     margin-right: 0;
@@ -12,6 +11,7 @@
 
 .card-body {
     padding: 0;
+    min-height: 30%;
 }
 
 .list_master {
@@ -25,13 +25,14 @@
     background-color: #cce6ff;
 }
 
-#header-buttons {
-    margin-right: 35px;
-    float: right;
-    height: 68px;
-    width: auto;
-    border: 1px solid red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.master {
+    min-height: 100%;
+}
+
+.sub {
+    height:26vh;
+}
+
+.guts {
+    height: 22vh;
+}

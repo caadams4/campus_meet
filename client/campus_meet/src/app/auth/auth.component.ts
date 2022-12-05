@@ -13,6 +13,7 @@ import { UserService } from "../user.service";
 export class AuthComponent implements OnInit {
 
   @Output() auth: EventEmitter<SocialUser> = new EventEmitter();
+
   user: SocialUser | undefined; 
   loggedIn: Boolean | undefined;
   GoogleLoginProvider = GoogleLoginProvider;
@@ -29,12 +30,10 @@ export class AuthComponent implements OnInit {
       // Note: data emitted here, through child html, into parent html, explicitly recieved by parent  
 
       // Resource for sharing data between components: https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/
-
     this.auth.emit(this.user);
   }
   
   ngOnInit() {
-    this.refreshGoogleToken();
     this.signIn();
   }
 
@@ -54,6 +53,7 @@ export class AuthComponent implements OnInit {
       let user_proifile:any;
       this.user = user;
       
+
       if (this.user.email.length > 8 && this.user.email.endsWith("@udel.edu")) { // user is signed in and added to the database. Render app
         this.sendAuth();
       } else {

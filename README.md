@@ -1,3 +1,4 @@
+---
 # How to start the Angular app
 * IF RUNNING ANGULAR AND THE API, START THE SERVICES IN TWO SEPERATE TERMINALS
 * navigate to /client/ directory and run the command: ng serve

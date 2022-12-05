@@ -11,3 +11,7 @@
 .sample {
     position: fixed;
 }
+
+.h {
+    height: 50vh
+}

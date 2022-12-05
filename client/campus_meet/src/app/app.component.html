@@ -8,17 +8,18 @@
 </head>
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <div *ngIf="user">
-  <button class="btn btn-dark">How to Play</button>
+<div class="navbar toolbar container-fluid" role="banner">
   
+  <div class="button" *ngIf="user">
+    <button mat-raised-button color="warn" (click)="openDialog()">Create Event</button>
   </div>
-
   <h1 class="title">Campus Meet</h1>
-  <!-- Signout button visible after signin -->
   <div *ngIf="user">
     <app-auth (auth)="recieveAuth($event)"></app-auth>
   </div>
+
+
+
 </div>
 
 <body>
@@ -27,7 +28,7 @@
     <!-- Auth visible when not signed in -->
     <div *ngIf="!user" class="row auth-container">
 
-      <app-auth (auth)="recieveAuth($event)"></app-auth>
+      <app-auth (event_list_init)="recieveEventList($event)" (auth)="recieveAuth($event)"></app-auth>
 
     </div>
 
@@ -35,13 +36,15 @@
     <div *ngIf="user" class="row auth-container">
       <div class="col-3 nopadding">
         <div class="limit_height">
-          <app-cards [event_list]="event_list" [user]="user"></app-cards>
+          <app-cards [event_list]="event_list" [user]="user" (event_list_joined)="recieveEventList($event)"></app-cards>
         </div>
         <!-- Note the ngFor is like a regular for loop, cool!-->
 
 
       </div>
-      <div class="col-9 map"><app-map [event_list]="event_list"></app-map></div>
+      <div class="col-9 map">
+        <app-map [user]="user" [event_list]="event_list"></app-map>
+      </div>
     </div>
 
 

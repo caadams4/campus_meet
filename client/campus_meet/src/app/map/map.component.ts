@@ -1,6 +1,10 @@
-import { GoogleInitOptions } from '@abacritt/angularx-social-login';
-import { Component, OnInit, Input } from '@angular/core';
+import { GoogleInitOptions, SocialUser } from '@abacritt/angularx-social-login';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { Event } from '../interfaces/Event';
+import { ViewEventComponent } from '../view-event/view-event.component';
 
 @Component({
   selector: 'app-map',
@@ -8,8 +12,15 @@ import { Event } from '../interfaces/Event';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-
+  @ViewChild(MapInfoWindow) infoWindow : MapInfoWindow | undefined;
   @Input() event_list: any[] = [];
+
+  @Input()
+  user: SocialUser = new SocialUser;
+  event: any;
+
+  
+  constructor(public dialog: MatDialog){}
 
   center: google.maps.LatLngLiteral = {lat: 39.679884456322554, lng: -75.75457476111104};
   zoom = 16;
@@ -27,7 +38,7 @@ export class MapComponent implements OnInit {
   };
 
   ngOnInit() {
-
+    
   }
 
 
@@ -43,11 +54,28 @@ export class MapComponent implements OnInit {
     console.log("right click")
   }
 
+  displayInfo(marker: MapMarker) {
+    console.log(marker.getTitle())
+  }
+
+  openInfoWindow(event: any) {
+    this.event = event;
+    this.openEvent(this.event)
+  }
 
 
+  openEvent(event:any): void {
+    console.log(event)
+    const dialogRef = this.dialog.open(ViewEventComponent, {
+      width: '40%',
+      height: '44vh',
+      data: {event:event,user:this.user}
+    });
 
-
-
+    dialogRef.afterClosed().subscribe((result: any) => {
+      result=result
+    });
+  }
 
 
 

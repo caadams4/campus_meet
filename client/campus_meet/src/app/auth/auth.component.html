@@ -7,9 +7,9 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-  <div *ngIf="!user" class="container text-center">
-      <div class="row">
-        <div class="col">        
+  <div *ngIf="!user" class="container h ">
+      <div class="row align-items-center">
+        <div class="col text-center">        
           <h3>Welcome to Campus Meet!</h3>
 
           <p>Sign in to your UD affliated Google account to get started.</p>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="col">
-              <img class="sample" src="https://github.com/caadams4/campus_meet/blob/main/sample.png?raw=true" alt="image"/>
+              <img   src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-1932.jpg?w=740&t=st=1670221400~exp=1670222000~hmac=558833d946061277a177763926806968f096e81c211803a6d55f0ae3fb3bcf7b" alt="image"/>
         </div>
       
       
@@ -34,7 +34,7 @@
 
   </div>
   <div *ngIf="user" class="card text-center">
-    <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+    <button mat-raised-button color="warn" (click)="signOut()">Leave</button>
   </div>
 
 

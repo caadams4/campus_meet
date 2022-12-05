@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 
 export class Event_Obj {
     constructor( // Creates a event object prior to sending to database
-        public dateTimeStart: number, //(IN MILISECONDS) 
+        public dateTimeStart: string, //(IN MILISECONDS) 
         public dateTimeEnd: number, //(IN MILISECONDS) 
         public title: string,
         public creator: string,//(this is the document id from mongo... NOT EMAIL or NOT USERNAME)
@@ -54,7 +54,7 @@ export class Event {
 
         Event.config.url = Event.baseURL + '/action/find'; // insert one doc to db
 
-        let filter = { "dateTimeStart": { "$ne": new Date().getTime() } } // query data based on tags from post
+        let filter = { "dateTimeStart": { "$ne": "k" } } // query data based on tags from post
         Event.config.data = { ...Event.data, filter }
 
         axios(Event.config).then(response => { res.send(response.data) })// return response to client
@@ -83,6 +83,8 @@ export class Event {
         const new_event_post = data_2_update.build_edit_object(data_2_update); // build an object to send to db
 
         Event.config.data = { ...Event.data, document: new_event_post }; // adds info to prep send package
+
+        console.log(req.body)
 
         axios(Event.config).then(response => { res.send(response.data) }) // return response to client
             .catch(error => res.send(error));
@@ -127,7 +129,7 @@ export class Event {
 
         Event.config.url = Event.baseURL + '/action/find';
 
-        let filter = { "tags": { "$all": JSON.parse(req.body.filter) }, "dateTimeStart": { "$ne": new Date().getTime() } };// query data based on tags from post
+        let filter = { "tags": { "$all": JSON.parse(req.body.filter) }, "dateTimeStart": { "$ne": "k" } };// query data based on tags from post
         // query events based on filtered list items and date/time of event
 
         Event.config.data = { ...Event.data, filter };
@@ -140,7 +142,7 @@ export class Event {
 
         Event.config.url = Event.baseURL + '/action/find';
 
-        let filter = { "groups": { "$all": JSON.parse(req.body.groups) }, "dateTimeStart": { "$ne": new Date().getTime() } };// query data based on tags from post
+        let filter = { "groups": { "$all": JSON.parse(req.body.groups) }, "dateTimeStart": { "$ne":"k" } };// query data based on tags from post
         // query events based on group list items and date/time of event
 
         Event.config.data = { ...Event.data, filter };
@@ -155,7 +157,7 @@ export class Event {
 
         let filter = { "_id": { "$oid": req.body.id } }; // query data based on object ID
 
-        let update = { "$push": { "attendess":  req.body.attendees  }}; // update fields that are sent in the put request
+        let update = { "$push": { "attendees":  req.body.attendees  }}; // update fields that are sent in the put request
 
         console.log(filter,update)
 
@@ -169,9 +171,9 @@ export class Event {
 
         Event.config.url = Event.baseURL + '/action/updateOne';
 
-        let filter = { "_id": { "$oid": req.body.id } };
+        let filter = { "_id": { "$oid": req.body.id } }; // query data based on object ID
 
-        let update = { "$pull": { "attendees": JSON.parse(req.body.attendees) } }; // update fields that are sent in the put request
+        let update = { "$pull": { "attendees":  req.body.attendees  }}; // update fields that are sent in the put request
 
         Event.config.data = { ...Event.data, filter, update };
 

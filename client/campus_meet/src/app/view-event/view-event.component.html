@@ -1,0 +1,39 @@
+<div class="container cont text-left">
+  <div class="row cont">
+    <div class="col">
+      <div class="card_list text-center">
+        <br>
+        <div class="card master">
+          <h4 class="card-header"><u>{{data.event.title}}</u></h4>
+          <div class="card-body">
+            <div class="row sub">
+              <div class="col text-left">
+                <div class="row guts">
+                  <p class="card-text"><b>Description: </b>{{data.event.descritption}}</p>
+                </div>
+
+                <div class="row ">
+                  <p class="card-text"><b>Start: </b>{{data.event.dateTimeStart}}</p>
+                </div>
+              </div>
+              <div class="col">
+                <b>Who's going:</b>
+                <li *ngFor="let person of data.event.attendees">{{person}}</li>
+              </div>
+            </div>
+
+            <div class="card-footer">
+
+              <button *ngIf="data.event.id" mat-raised-button color="warn" (click)="leaveEvent($event)">Leave
+                Event</button>
+              <button *ngIf="!data.event.id" mat-raised-button color="primary" (click)="selectEvent($event)">Join
+                Event</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

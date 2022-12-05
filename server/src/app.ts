@@ -1,13 +1,14 @@
 import express from "express";
 import {ApiRouter} from "./router";
 
+const PORT = process.env.PORT || 3000;
+
 class Application {
     public app: express.Application;
-    public port: number;
+
 
     constructor() {
         this.app = express();
-        this.port = process.env.serverPort?+process.env.serverPort:3000;
         this.app.use(express.urlencoded({ extended: false }));
         this.app.use(express.json());
         this.initCors();
@@ -16,7 +17,7 @@ class Application {
     // Starts the server on the port specified in the environment or on port 3000 if none specified.
     public start(): void {
         this.buildRoutes();
-        this.app.listen(this.port, () => console.log("Server listening on port " + this.port + "!"));
+        this.app.listen(PORT, () => console.log("Server listening on port " + PORT + "!"));
     }
 
     // sets up to allow cross-origin support from any host.  You can change the options to limit who can access the api.

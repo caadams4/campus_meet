@@ -37,22 +37,25 @@ body {
     margin: 0;
   }
 
-  .spacer {
-    flex: 1;
-  }
 
   .toolbar {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    padding-left: 4;
     height: 10vh;
-    display: flex;
     align-items: center;
     background-color: #00539f;
     color: white;
     font-weight: 600;
+    
   }
+
+.button{
+  top: 0;
+  left: 0;
+}
 
 .limit_height {
   max-height: 90vh;
