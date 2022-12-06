@@ -1,0 +1,93 @@
+body {
+    height: 90vh;
+    width: 100wh;
+}
+
+.container {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.auth-container {
+    height: 90vh;
+}
+
+.title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home {
+  margin-top: 10vh;
+  height: 90vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 4;
+    height: 10vh;
+    align-items: center;
+    background-color: #00539f;
+    color: white;
+    font-weight: 600;
+    
+  }
+
+.button{
+  top: 0;
+  left: 0;
+}
+
+.limit_height {
+  max-height: 90vh;
+  overflow: auto;
+}
+
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #00539f;
+}
+
+.map {
+  height: 90vh;
+  padding: 0;
+}
+
+.nopadding {
+  padding: 0;
+}

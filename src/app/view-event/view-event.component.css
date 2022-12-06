@@ -1,0 +1,38 @@
+.card_list {
+    padding-top: 1;
+    padding-right: 1;
+    margin-right: 0;
+    margin-top: 1;
+}
+
+.card-footer {
+    background-color: #fff6cc;
+}
+
+.card-body {
+    padding: 0;
+    min-height: 30%;
+}
+
+.list_master {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.card-header {
+    margin-top: 1;
+    background-color: #cce6ff;
+}
+
+.master {
+    min-height: 100%;
+}
+
+.sub {
+    height:26vh;
+}
+
+.guts {
+    height: 22vh;
+}

@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col ">
+            <br>
+            <h2 class="text-center">Create Event</h2>
+            <br>
+            <form #eventForm="ngForm">
+                <div class="new_event">
+                    <mat-form-field>
+                        <mat-label>Title</mat-label>
+                        <input matInput name="title" ngModel>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput name="descritption" ngModel></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker" name="date" ngModel>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <div class="new_event2">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Start Time: Hour</mat-label>
+                            <mat-select [(value)]="hour">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                                <mat-option value="6">6</mat-option>
+                                <mat-option value="7">7</mat-option>
+                                <mat-option value="8">8</mat-option>
+                                <mat-option value="9">9</mat-option>
+                                <mat-option value="10">10</mat-option>
+                                <mat-option value="11">11</mat-option>
+                                <mat-option value="12">12</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Minute</mat-label>
+                            <mat-select [(value)]="minute">
+                                <mat-option value="0">00</mat-option>
+                                <mat-option value="15">15</mat-option>
+                                <mat-option value="30">30</mat-option>
+                                <mat-option value="45">45</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>AM/PM</mat-label>
+                            <mat-select [(value)]="ampm">
+                                <mat-option value="am">AM</mat-option>
+                                <mat-option value="pm">PM</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div> Pick a location</div>
+                    <google-map height="30vh" width="100%" [center]="center" [zoom]="zoom"
+                        (mapClick)="addMarker($event)">
+                        <map-marker *ngFor="let markerPosition of event_coordinates" [icon]="svgMarker"
+                            [options]="markerOptions" (click)="displayInfo(markerPosition)" [position]="markerPosition">
+                        </map-marker>
+                    </google-map>
+                    <br>
+                    <div class="row list_master">
+                        <div class="col">
+                            <button mat-raised-button type="submit" color="primary"
+                                (click)="sendEvent(eventForm.value)">Create Event</button>
+                        </div>
+                        <div class="col">
+                            <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+                        </div>
+                      </div>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
